@@ -8,12 +8,12 @@ from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
-sys.path.append('/home/fsgg7/projects')
+sys.path.append('/home/fsgg7/projects/')
 from src.exception import customeException
 from src.logger import logging
 from src.utils import save_object
 
-from 
+from src.components.utils import evaluate_models
 
 class modelTrainerConfig():
     trained_model_path=os.path.join("artifacts","model.pkl")
@@ -30,7 +30,7 @@ class modelTrainer:
            X_train,y_train, X_test, y_test = \
            (train_array[:,:-1], train_array[:,-1], test_array[:,:-1], test_array[:,-1])
 
-            models={
+           models={
             "adaBoost": AdaBoostRegressor(),
             "decision tree": DecisionTreeRegressor(),
             "kneighborns": KNeighborsRegressor(),
@@ -42,7 +42,7 @@ class modelTrainer:
 
             }
            
-           model_repot:dict= evaluate_model(X_train=X_train, y_train=y_train,X_test=X_test ,y_test=y_test, models=models)
+           model_repot:dict= evaluate_models(X_train=X_train, y_train=y_train,X_test=X_test ,y_test=y_test, models=models)
 
         except Exception as e:
             raise customeException(e,sys)
