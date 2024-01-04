@@ -13,8 +13,8 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            model_path='artifacts/model.pkl'
-            preprocessor_path='artifacts/preprocessor.pkl'
+            model_path='src/components/artifacts/model.pkl'
+            preprocessor_path='src/components/artifacts/proprocessor.pkl'
             #print("current working directory",os.getcwd())
             model=load_object(file_path=model_path)
 
@@ -31,7 +31,7 @@ class CustomData:
     def __init__(self,
             gender:str,
             race_ethnicity: str,
-            parental_level_of_education,
+            parental_level_of_education:str,
             lunch:str,
             test_preparation_course:str,
             reading_score:int,

@@ -13,7 +13,7 @@ from src.exception import customeException
 from src.logger import logging
 from src.utils import save_object
 
-from src.components.utils import evaluate_models
+from src.utils import evaluate_models
 
 class modelTrainerConfig():
     trained_model_path=os.path.join("artifacts","model.pkl")

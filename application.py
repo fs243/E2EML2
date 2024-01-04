@@ -25,9 +25,9 @@ def predict_datapoint():
             lunch=request.form.get("lunch"),
             test_preparation_course=request.form.get("test_preparation_course"),
             
-            reading_score=float(request.form.get("reading_score")),
+            reading_score=int(request.form.get("reading_score")),
             
-            writing_score=float(request.form.get("writing_score"))
+            writing_score=int(request.form.get("writing_score"))
         )
         pred_df=data.get_data_as_frame()
         print(pred_df)
@@ -37,4 +37,4 @@ def predict_datapoint():
     
 if __name__ == '__main__':
    
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
